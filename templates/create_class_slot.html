@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Slot{% endblock %}
+{% block css %} <link href="{% static 'css/create_slot.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+
+<!----------Form----------->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <h4 class="card-title text-center mb-5 fw-light fs-5">Create Slots</h4>
+                    {% if class_slot %}
+                        <form action="" method="POST">
+                    {% else %}
+                        <form action="{% url 'createClassSlot' %}" method="POST">
+                    {% endif %}
+                    
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Title</label>
+                        <input type="text" required name="class_slot_name" class="form-control" id="floatingInput" placeholder="Title" value="{{class_slot.name}}">
+                       
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Description</label>
+                        <textarea name="class_slot_description" required class="form-control" id="floatingInput" placeholder="Description about the class" cols="30" rows="5">{{class_slot.description}}</textarea>
+                    </div>
+                    <label for="floatingInput">Date</label>
+                    <div class="form-floating mb-3">    
+                        <input type="text" required name="class_slot_date" class="form-control" id="floatingInput" placeholder="MM-DD-YYYY" value="{{class_slot.date}}" onfocus="(this.type='date')">
+                      
+                    </div>  
+                        <div class="form-floating mb-3">
+                            <label for="floatingInput">From</label>
+                            <input type="text" required name="class_slot_start_time" class="form-control" id="floatingInput"
+                                placeholder="HH:MM" value="{{class_slot.start_time}}" onfocus="(this.type='time')">
+                         
+                        </div>
+                            <div class="form-floating mb-3">
+                            <label for="floatingInput">To</label>
+                            <input type="text"required name="class_slot_end_time" class="form-control" id="floatingInput"
+                                placeholder="HH:MM" value="{{class_slot.end_time}}" onfocus="(this.type='time')">
+                         
+                        </div>
+
+
+                          <script type="text/javascript">
+                                function ShowHideDiv(chkPassport) {
+                                    var dvPassport = document.getElementById("dvPassport");
+                                    dvPassport.style.display = chkPassport.checked ? "block" : "none";
+                                }
+                            </script>
+                            <label for="chkPassport">
+                                <input type="checkbox" required id="chkPassport" onclick="ShowHideDiv(this)" />
+                             Online Student
+                            </label>
+                            <hr />
+                
+                            <div id="dvPassport" style="display: none">
+                               Meeting link:
+                                <input type="text" name="class_slot_link" id="txtPassportNumber" value="{{class_slot.link}}" />
+                            </div>
+                            <br>    
+                         
+                        <div class="d-grid">
+                            <button class="btn btn-common btn-login text-uppercase fw-bold" type="submit">Create Slot</button>
+                        </div>
+                        <hr class="my-4">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------Form----------->
+
+
+{% endblock %}

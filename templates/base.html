@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>गुरुSkool | {% block title %}{% endblock %}</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{% static 'img/logo.png' %}" rel="icon">
+  <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% block css %}
+{% endblock %}
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a href="{% url 'index' %}">गुरुSkool</a><img src="{% static 'img/logo.png' %}" class="img-fluid animated" alt=""></h1>
+      <nav class="nav-menu d-none d-lg-block nav-item">
+        <ul>
+          <li class="active"><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#about">Features</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li class="drop-down"><a href="#services">Services</a>
+            <ul>
+              {% if user.is_superuser %}
+              <li><a href="{% url 'viewGroupDiscussion' %}">Group Discussion</a></li>
+              <li><a href="{% url 'viewClassSlots' %}">Create Slots</a></li>
+              <li><a href="{% url 'bookClassSlot' %}">View/Book Slots</a></li>
+              {% else %}
+              <li><a href="{% url 'viewGroupDiscussion' %}">Group Discussion</a></li>
+              <li><a href="{% url 'bookClassSlot' %}">View/Book Slots</a></li>
+              {% endif %}
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+      
+        {% if user.is_authenticated %}
+        <li>
+          <b>
+            Welcome, {{ user.first_name }} {{ user.last_name }}
+          </b> 
+        </li>
+        <li class="p-0">
+          <a href="{% url 'logout' %}" class="get-started-btn scrollto">Logout</a>
+        </li>
+        {% else %}
+        <li class="p-0">
+          <a href="{% url 'register' %}" class="get-started-btn scrollto">Register</a>
+        </li>
+        <li class="p-0">
+          <a href="{% url 'login' %}" class="get-started-btn scrollto">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+      </div>
+  </nav><!--------Navbar Ends--------->
+  </header><!-- End Header -->
+
+{% block content %}
+
+{% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>गुरुSkool</h3>
+            <p>A better learning future starts here.</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://twitter.com/khannakshat7" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://github.com/khannakshat7" class="github"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/akshatkhanna7" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </div> 
+     <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>गुरुSkool</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.linkedin.com/in/akshatkhanna7/">Akshat</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <!-- JS Files -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

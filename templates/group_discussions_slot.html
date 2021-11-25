@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Slots{% endblock %}
+{% block css %} <link href="{% static 'css/slot.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<div class="container my-5 pt-5">
+    <h1 class="text-center">Group Disscussion Slots</h1>
+    {% if user.is_superuser %}
+    <div class="d-flex">
+        <a href="{% url 'createGroupDiscussion' %}" class="get-started-btn scrollto ml-auto btn-common">Create GD Slot</a>
+    </div>
+    {% endif %}
+    
+    {% if group_discussions %}
+    <div class="row">
+        {% for GDslot in group_discussions %}
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h5 class="card-title mx-auto">{{GDslot.topic}}</h5>
+                </div>
+                <div class="card-body mx-1 pt-0">
+                    <div class="widget">
+                        <div class="widget-title-wrapper">
+                            <div class="widget-date-primary">
+                                <span class="widget-date-day">{{GDslot.date|date:"d"}}</span>
+                                <span class="widget-date-month">{{GDslot.date|date:"M"}}</span>
+                            </div>
+                            <div class="widget-meeting-info">
+                                <span class="widget-pro-title">Timings</span>
+                                <span class="widget-meeting-time">{{GDslot.start_time|date:"H:i"}} to {{GDslot.end_time|date:"H:i"}} Hrs</span>
+                            </div>
+                        </div>
+                    
+                        <div class="#">
+                            <a href="join/{{GDslot.id}}">
+                            <button class="btn btn-primary form-control  btn-block btn-common">Join Group Discussion</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+        <strong>No Slots Found!</strong>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

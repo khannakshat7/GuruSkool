@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block css %}
+<link href="{% static 'css/timeline.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="main-timeline">
+
+        <!-- start experience section-->
+        <div class="timeline">
+            <div class="icon"></div>
+            <div class="date-content">
+                <div class="date-outer">
+                    <span class="date">
+                        <span class="month">Week 1</span>
+                    </span>
+                </div>
+            </div>
+            <div class="timeline-content">
+                <h5 class="title">Ideating Phase</h5>
+                <p class="description">
+                   In the Week 1 of the challenge, I understood the problem statement. After
+                   doing a lot of brain-storming, a lot of ideas popped into my mind. I wrote 
+                   all the ideas and started thinking about what tech-stack should be suitable to work on, and 
+                   started the development part.
+
+                </p>
+            </div>
+        </div>
+        <!-- end experience section-->
+
+        <!-- start experience section-->
+        <div class="timeline">
+            <div class="icon"></div>
+            <div class="date-content">
+                <div class="date-outer">
+                    <span class="date">
+                        <span class="month">Week 2</span>
+                    </span>
+                </div>
+            </div>
+            <div class="timeline-content">
+                <h5 class="title">Development Phase</h5>
+                <p class="description">
+                  In the Week 2, I completed one important feature, which is the Group Discussion feature,
+                  in which teachers will be able to conduct GD as per the availability of students. It has an
+                  interactive UI for user accessibility. The second feature was started by the end of this week,
+                in which students and teachers are able to book slots and join the class.
+                </p>
+            </div>
+        </div>
+        <!-- end experience section-->
+
+        <!-- start experience section-->
+        <div class="timeline">
+            <div class="icon"></div>
+            <div class="date-content">
+                <div class="date-outer">
+                    <span class="date">
+                        <span class="month">Week 3</span>
+                    </span>
+                </div>
+            </div>
+            <div class="timeline-content">
+                <h5 class="title">Deployment</h5>
+                <p class="description">
+                   In the last week, I completed the second feature completely. In the second feature,
+                   I also added a feature that sends an "Email Alert" after the slot is booked. After this,
+                   finishing touch was given to the website, by minifying css, adding comments, and making 
+                   the code clean. Finally, the product was deployed on Heroku.
+                </p>
+            </div>
+        </div>
+        <!-- end experience section-->
+    </div>
+</div>
+{% endblock %}

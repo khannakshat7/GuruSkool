@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Slots{% endblock %}
+{% block css %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+
+<p class="success">Slot Booked Successfully</p>
+
+
+<div class="jumbotron text-center">
+    <h1 class="display-3">Thank You!</h1>
+    <p class="lead"><strong>Your slot has been booked successfully!</p>
+    
+    <p class="lead"></p>
+    <p class="lead">
+        <a class="btn btn-primary btn-sm" href="{% url 'bookClassSlot' %}" role="button">Back to Slots</a>
+    </p>
+</div>
+
+{% endblock %}

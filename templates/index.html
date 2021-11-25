@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block css %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+  <!--------Hero Section---------->
+  <section id="hero" class="d-flex align-items-center mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Believe Bigger. Aim Higher.</h1>
+          <h2>Creating a community of diverse learners. We help you to manage all your classroom related stuff at one place.</h2>
+          <div class="d-flex">
+            <a href="{% url 'register' %}" class="btn-get-started scrollto">Get Started</a>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Demo <i class="icofont-play-alt-2"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'img/head.png' %}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--------- End Hero ---------->
+  <br><br>
+  <main id="main">
+  <!--------- About Section ---------->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="{% static 'img/about.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>A webapp wherein students and faculty can interact easily with each other. A better learning future starts here.</h3>
+            <p class="font-italic"><b>Features</b></p>
+            <ul>
+              <li><i class="icofont-check-circled"></i>Group Discussion </li>
+              <li><i class="icofont-check-circled"></i>Slot Booking</li>
+              <li><i class="icofont-check-circled"></i>Email Alert</li>
+              <li><i class="icofont-check-circled"></i>One on One interaction with teachers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section><!------- End About Section -------->
+
+
+      <!--------- Timeline Section ---------->
+      <section id="timeline" class="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Have a look at my whole journey through this TimeLine. </h3>
+              <p>The timeline specifies the different phases of development of this website, along with the ups and downs during the development of this product. </p>
+              <br><a href="{% url 'timeline' %}"><button class="get-started-btn"type="submit">TimeLine</button></a><br><br>
+            </div>
+            <div class="col-lg-6">
+              <img src="{% static 'img/timeline.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <!------- End Timeline Section -------->
+
+      <!--------- Service Section ---------->
+    <section id="services" class="services section-bg">
+      <div class="container">
+        <div class="section-title">
+          <span>Services</span>
+          <h2>Services</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-group"></i></div>
+              <h4><a href="">Group Discussion</a></h4>
+              <p>Teachers will be able to conduct GD as per the selection
+                of students. It dynamically allocates seats as per creation of GD slots.</p>
+            </div>
+          </div>
+        
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Slot Booking</a></h4>
+              <p>Teachers will be able to create slots for conducting physical classes and 
+                on the other hand, students will be able to book their in-person class slots,
+                as per the seat availability and can join the meeting.
+              </p>
+            </div>
+          </div>
+        
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-mail-send"></i></div>
+              <h4><a href="">Email Alert</a></h4>
+              <p>As soon as the online class slot is created from the Slot Booking section, an Email Alert
+                will be sent to the registered email-id of the user.
+              </p>
+            </div>
+          </div>
+        
+          <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-webcam"></i></div>
+              <h4><a href="">Online Classes</a></h4>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+          </div>
+        
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-video"></i></div>
+              <h4><a href="">Personal Meetings</a></h4>
+              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+            </div>
+          </div>
+        
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-arch"></i></div>
+              <h4><a href="">Divera don</a></h4>
+              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section><!--------- End Services Section ---------->
+
+      <!--------- Contact Section ---------->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>Contact</h2>  
+        </div>
+        <div class="row">
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit" class="btn-primary">Send Message</button></div>
+            </form>
+          </div>
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>Bangalore, India</p>
+              </div>
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>khannakshat7@gmail.com</p>
+              </div>
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+91 7026323803</p>
+              </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15921334.023069076!2d71.27933314999997!3d13.032842100000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b289b6aaab%3A0xce3ce7c6bda43d1d!2sMicrosoft%20Corporation%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1637336712919!5m2!1sen!2sin"frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!--------- End Contact Section ---------->
+  </main>
+  <!-- End #main -->
+  {% endblock %}

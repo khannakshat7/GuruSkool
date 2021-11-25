@@ -1,0 +1,31 @@
+body {
+  background: #D6A4DE ;
+  }
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  .btn-common
+{
+  transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  background-color: #BA68C8;
+  color: #fff;
+  text-align: center;
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+}
+.btn-common:hover
+{
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  transform: translateY(-3px);
+  color: plum;
+  color:#3c4142 ;
+}
+
+  

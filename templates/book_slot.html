@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Slots{% endblock %}
+{% block css %} <link href="{% static 'css/slot.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<div class="container my-5 pt-5">
+    <h1 class="text-center mt-5 my-4">Slots</h1>
+    <!------------Slot Card-------------->
+    {% if class_slots %}
+    <div class="row">
+        {% for slot in class_slots %}
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h5 class="card-title">{{slot.name}}</h5>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget">
+                        <div class="widget-title-wrapper">
+                            <div class="widget-date-primary">
+                                <span class="widget-date-day">{{slot.date|date:"d"}}</span>
+                                <span class="widget-date-month">{{slot.date|date:"M"}}</span>
+                            </div>
+                            <div class="widget-meeting-info">
+                                <span class="widget-pro-title">Description</span>
+                                <span class="widget-meeting-time">{{slot.start_time|date:"H:i"}} to {{slot.end_time|date:"H:i"}} Hrs</span>
+                            </div>
+                        </div>
+                        <div class="three-dots">
+                            <p class="ml-4 mr-3">{{slot.description|truncatewords:6 }}</p>
+                        </div>
+                        {% if slot.id in slot_booked_by_user_list_id %}
+                        <div class="widget-meeting-points text-center">
+                            <b><p class="ml-4 mr-3">Already Booked!</p></b>
+                            {% if slot.link %}
+                            <div class="meeting-action">
+                                <a href="{{slot.link}}"><button class="btn btn-primary form-control  btn-block btn-common">Join</button></a>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% elif slot.current_capacity < 1 %}
+                        <div class="widget-49-meeting-points text-center">
+                            <b><p class="ml-4 mr-3">No slots available!</p></b>
+                        </div>
+                        {% if slot.link %}
+                        <div class="meeting-action">
+                            <a href="{{slot.link}}"><button class="btn btn-primary form-control  btn-block btn-common">Join</button></a>
+                        </div>
+                        {% endif %}
+                        {% else %}
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <form action="{% url 'bookClassSlot' %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="class_slot_id" value="{{slot.id}}">
+                                <button class="btn btn-primary form-control  btn-block btn-common">Book</button>
+                                    </form>
+                                </div>
+                                <div class="col">
+                                {% if slot.link %}
+                                <div class="meeting-action">
+                                    <a href="{{slot.link}}"><button class="btn btn-primary form-control  btn-block btn-common">Join</button></a>
+                                </div>
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-----------Slot Card------------>
+                        {% endif %}
+                        {% if not slot.id in slot_booked_by_user_list_id %}
+                        <p>Total Slots: {{ slot.max_capacity }}</p>
+                        <p>Available Slots: {{ slot.current_capacity }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+        <strong>No Slots Found!</strong>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load index %}
+{% load nextindex %}
+{% block title %}Group Discussion{% endblock %}
+{% block css %}
+<link href="{% static 'css/group_discussion.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<br>
+<br>
+
+    <div class="container text-center my-5">
+            <h1>Topic: {{ gd_slot.topic }}</h1>
+            <ul class="showcase">
+                <li>
+                    <div class="seat"></div>
+                    <small>N/A</small>
+                </li>
+                <li>
+                    <div class="seat selected"></div>
+                    <small>Selected</small>
+                </li>
+                <li>
+                    <div class="seat occupied"></div>
+                    <small>Occupied</small>
+                </li>
+            </ul>
+
+
+        <div class="row-container">
+            <div class="row">
+                {% for group in number_of_groups %}
+                <div class="col-md-4">
+                    <div class="group my-5">
+                        <div class="row-seat">
+                        
+                            <div class="seat"></div>
+                            <div class="seat"></div>
+                        </div>
+                        <div class="row-seat my-auto">
+                            <div class="table">
+                                <a href="{{ gd_table_links_list|index:group }}" target="_blank">
+                                    {% with timing=timings|index:group %}{% with timing2=timings|nextindex:group %}
+                                    <p class="group-link">Table {{ forloop.counter }}<br>
+                                        {{ timing|date:"H:i" }} to {{ timing2|date:"H:i" }}
+                                    </p>
+                                    {% endwith %} {% endwith %}
+                                </a>
+                            </div> 
+                        </div>
+                        <div class="row-seat">
+                            <div class="seat rotated"></div>
+                            <div class="seat rotated"></div>
+                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+   
+            </div>
+            
+          
+        </div>
+    </div>
+            <!-- <div class="text-wrapper">
+                <p class="text">Selected Seats <span id='count'>0</span>
+                <p class="text">Total Price ₹<span id="total">0</span></p>
+            </div> -->
+
+{% endblock %}

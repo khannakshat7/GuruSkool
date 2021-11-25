@@ -1,0 +1,151 @@
+body
+{    
+    background-color: rgb(0, 18, 50);
+}
+.movie-container
+{
+    margin: 20px 0;
+}
+h1{
+    color: #ffff;
+}
+.row-container {
+    margin-top: 30px;
+}
+/* --------Seat & Table of Group Discussion Page-------- */
+.seat {
+    background-color: #444451;
+    margin: 0px 14px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 50px;
+    width: 55px;
+    background: #01163e;
+    border: 2px solid #314c81;
+    transition: all .2s ease;
+}
+.table
+{
+     color: white;
+    height: 100px;
+    width: 200px;
+    margin: 5px;
+    text-align: center;
+    padding-top: 30px;
+    border-radius: 30px;
+    background: rgb(186, 116, 233,0.3);
+    border: 2px solid #314c81;
+    transition: all .2s ease;
+}
+.seat.selected {
+    background-color: #6feaf6;
+    background-color: #31d7a9;
+}
+.seat.occupied {
+    background-color: #fff;
+}
+.seat:nth-of-type(2) {
+    margin-right: 18px;
+}
+.seat:nth-last-of-type(2) {
+    margin-left: 18px;
+}
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+.showcase {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+.showcase li small {
+    margin-left: 2px;
+}
+.row-seat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p.text {
+    margin: 5px 0;
+}
+p.text span {
+    color: #6feaf5;
+}
+
+.text {
+    font-size: 18px;
+}
+#count,
+#total {
+    font-size: 24px;
+    padding: 0 8px;
+}
+.text-wrapper {
+    margin-top: 10px;
+}
+.rotated{
+    transform: rotate(180deg);
+}
+.group-link {
+    color: white;
+}
+@media (max-width: 576px) {
+
+    body {
+        padding-top: 30px;
+    }
+
+    .movie-container select {
+        font-size: 14px;
+    }
+    .seat {
+        height: 30px;
+    width: 35px;
+    }
+
+    .movie-screen img {
+        max-width: 92%;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        padding: 7px;
+    }
+
+    .seat:nth-of-type(2) {
+        margin-right: 12px;
+    }
+
+    .seat:nth-last-of-type(2) {
+        margin-left: 12px;
+    }
+    .movie-screen {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+    .text {
+        font-size: 14px;
+    }
+   #count,
+    #total {
+        font-size: 18px
+    }
+}

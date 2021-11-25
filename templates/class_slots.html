@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Slots{% endblock %}
+{% block css %} <link href="{% static 'css/slot.css' %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<div class="container my-5 pt-5">
+    <h1 class="text-center">Slots</h1>
+    <div class="d-flex">
+        <a href="{% url 'createClassSlot' %}" class="get-started-btn scrollto ml-auto btn-common">Create Slot</a>
+    </div>
+        <!--------------Slot Card---------------->
+    {% if class_slots %}
+    <div class="row">
+        {% for slot in class_slots %}
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h5 class="card-title mx-auto">{{slot.name}}</h5>
+                </div>
+                <div class="card-body mx-1 pt-0">
+                    <div class="widget">
+                        <div class="widget-title-wrapper">
+                            <div class="widget-date-primary">
+                                <span class="widget-date-day">{{slot.date|date:"d"}}</span>
+                                <span class="widget-date-month">{{slot.date|date:"M"}}</span>
+                            </div>
+                            <div class="widget-meeting-info">
+                                <span class="widget-pro-title">Timings</span>
+                                <span class="widget-meeting-time">{{slot.start_time|date:"H:i"}} to {{slot.end_time|date:"H:i"}} Hrs</span>
+                            </div>
+                        </div>
+
+
+                        <div class="widget-meeting-points">
+                            <p class="ml-4 mr-3">{{slot.description|truncatewords:6}}</p>
+                        </div>
+                    
+                        <div class="#">
+                            <a href="edit/{{slot.id}}">
+                            <button class="btn btn-primary form-control  btn-block btn-common">Edit</button>
+                            </a>
+                        </div>
+                       
+                        <div class="#">
+                            <a href="delete/{{slot.id}}"><button class="btn btn-primary form-control  btn-block btn-common">Delete</button></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!---------------Slot Card---------------->
+
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+        <strong>No Slots Found!</strong>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
