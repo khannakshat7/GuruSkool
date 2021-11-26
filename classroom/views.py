@@ -169,7 +169,7 @@ def bookClassSlot(request):
         class_details = ClassSlotDetails.objects.get(id=class_slot_id) # Get class slot details from DB
         class_slot_booking.class_details = class_details
         class_slot_booking.save()
-        if(class_details.current_capacity>1):
+        if(class_details.current_capacity>1): # If class slot is not full
             class_details.current_capacity = class_details.current_capacity - 1 # Decrease current capacity by 1
             class_details.save()
             subject = "Your Slot has been booked Successfully"
@@ -179,30 +179,31 @@ def bookClassSlot(request):
     else:
         try:
             class_slots = ClassSlotDetails.objects.all()
-            slot_booked_by_user_list = ClassSlotBooking.objects.filter(user=request.user)
-            slot_booked_by_user_list_id = []
+            slot_booked_by_user_list = ClassSlotBooking.objects.filter(user=request.user) # Get all class slots booked by user
+            slot_booked_by_user_list_id = [] # Create a list of class slot ids booked by user
             for slot in slot_booked_by_user_list:
                 slot_booked_by_user_list_id.append(slot.class_details.id)
         except:
-            class_slots = None
+            class_slots = None # If no class slots are available
         return render(request, 'book_slot.html', {'class_slots': class_slots, 'slot_booked_by_user_list_id': slot_booked_by_user_list_id})
 
+# This view is used to create Group Discussion slot by faculty
 @login_required(login_url='/login/')
 @permission_required('is_superuser',raise_exception=True)
 def createGroupDiscussion(request):
     if request.method == 'POST':
-        group_discussion = GroupDiscussion()
+        group_discussion = GroupDiscussion() # Create a group discussion object
         group_discussion.topic = request.POST.get('topic')
         group_discussion.number_of_groups = request.POST.get('number_of_groups')
         group_discussion.date = request.POST.get('date')
         group_discussion.start_time = request.POST.get('start_time')
         group_discussion.end_time = request.POST.get('end_time')
-        group_discussion.save()
+        group_discussion.save() # Save group discussion in DB
         for i in range(int(group_discussion.number_of_groups)):
             group_discussion_links = GroupDiscussionLinks()
             group_discussion_links.group_discussion = group_discussion
             letters = string.ascii_letters
-            random_link =  ''.join(random.choice(letters) for i in range(7)) # Generate random link
+            random_link =  ''.join(random.choice(letters) for i in range(7)) # Generate random links
             group_discussion_links.link = "https://meet.jit.si/"+random_link
             group_discussion_links.save()
 
@@ -210,24 +211,27 @@ def createGroupDiscussion(request):
     else:
         return render(request, 'create_group_discussion.html')
 
+# This view is used to view/return Group Discussion slot which are open to students
 @login_required(login_url='/login/')
 def viewGroupDiscussion(request):
     try:
-        group_discussions = GroupDiscussion.objects.all()
+        group_discussions = GroupDiscussion.objects.all() # Get all group discussions from DB
     except:
-        group_discussions = None
+        group_discussions = None # If no group discussions are available
     return render(request, 'group_discussions_slot.html', {'group_discussions': group_discussions})
 
+# This view is used to Join Group Discussion slot which are available
 @login_required(login_url='/login/')
 def joinGroupDiscussion(request,gd_slot_id):
-    gd_slot = GroupDiscussion.objects.get(id=gd_slot_id)
-    gd_table = GroupDiscussionLinks.objects.filter(group_discussion=gd_slot).order_by('link')
-    gd_table_links_list = []
+    gd_slot = GroupDiscussion.objects.get(id=gd_slot_id) # Get group discussion from slot id
+    gd_table = GroupDiscussionLinks.objects.filter(group_discussion=gd_slot).order_by('link') # Get all group discussion links from group discussion
+    gd_table_links_list = [] # Create a list of group discussion links
     for gd_table_link in gd_table:
         gd_table_links_list.append(gd_table_link.link)
-    timings = list(pandas.date_range(start=str(gd_slot.start_time),end=str(gd_slot.end_time),periods=int(gd_slot.number_of_groups)+1))
+    timings = list(pandas.date_range(start=str(gd_slot.start_time),end=str(gd_slot.end_time),periods=int(gd_slot.number_of_groups)+1)) # Get all timing breakdown between start time and end time for group discussion
     
     return render(request,'group_discussion.html',{'gd_slot':gd_slot,'number_of_groups': range(gd_slot.number_of_groups), 'timings':timings,'gd_table_links_list':gd_table_links_list})
 
 def timeline (request):
     return render(request,"timeline.html")
+

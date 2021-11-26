@@ -22,12 +22,14 @@
                                 <span class="widget-date-month">{{slot.date|date:"M"}}</span>
                             </div>
                             <div class="widget-meeting-info">
-                                <span class="widget-pro-title">Description</span>
+                                <span class="widget-pro-title">Timings</span>
                                 <span class="widget-meeting-time">{{slot.start_time|date:"H:i"}} to {{slot.end_time|date:"H:i"}} Hrs</span>
                             </div>
                         </div>
                         <div class="three-dots">
-                            <p class="ml-4 mr-3">{{slot.description|truncatewords:6 }}</p>
+                            {% with desc=slot.description|linebreaks %}
+                            <p class="ml-4 mr-3">{{desc|truncatewords:6}}</p>
+                            {% endwith %}
                         </div>
                         {% if slot.id in slot_booked_by_user_list_id %}
                         <div class="widget-meeting-points text-center">

@@ -32,7 +32,9 @@
 
 
                         <div class="widget-meeting-points">
-                            <p class="ml-4 mr-3">{{slot.description|truncatewords:6}}</p>
+                            {% with desc=slot.description|linebreaks %}
+                            <p class="ml-4 mr-3">{{desc|truncatewords:6}}</p>
+                            {% endwith %}
                         </div>
                     
                         <div class="#">

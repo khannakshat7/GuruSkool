@@ -125,12 +125,12 @@ STATICFILES_DIRS = [
    STATIC_DIR,
 ]
 
-DEFAULT_FROM_EMAIL = 'guruskool@aol.com'
+DEFAULT_FROM_EMAIL = 'guru.skool@aol.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.aol.com'
-EMAIL_HOST_USER = 'guruskool@aol.com'
-EMAIL_HOST_PASSWORD = 'feyzvnfaosbjnfri'
+EMAIL_HOST_USER = 'guru.skool@aol.com'
+EMAIL_HOST_PASSWORD = 'cdbrrbhzzkblsous'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
