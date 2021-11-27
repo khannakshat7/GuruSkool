@@ -73,7 +73,7 @@
 
 - [Deployed Website](https://guruskool.herokuapp.com)
 - [Demo Video](https://youtube.com/)
-- [Support Documents](https://docs.google.com)
+- [Support Documents](https://drive.google.com/drive/folders/1kxZ9SSJmFhWAMgk1e9uppmI1Qy2BhSiI?usp=sharing)
 
 ## Need help?
 
