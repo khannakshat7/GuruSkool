@@ -12,23 +12,17 @@ from classroom.models import ClassSlotBooking, ClassSlotDetails, GroupDiscussion
 
 
 def index(request):
-    """
-    This view is used to handle root url request and redirect to home page 
-    """
+    """ This view is used to handle root url request and redirect to home page """
     return render(request, 'index.html')
 
 
 def register(request):
-    """
-    This view is used to handle register url request and redirect to registration page
-    """
+    """ This view is used to handle register url request and redirect to registration page """
     return render(request, 'register.html')
 
 
 def teacherRegister(request):
-    """
-    This view is used to handle registration of faculty and get all data from register form and save the user in the DB
-    """
+    """ This view is used to handle registration of faculty and get all data from register form and save the user in the DB """
     registeredcheck = False
     if(request.method == 'POST'):
         user_form = UserForm(data=request.POST)
@@ -55,9 +49,7 @@ def teacherRegister(request):
 
 
 def studentRegister(request):
-    """
-    This view is used to handle registration of student and get all data from register form and save the user in the DB
-    """
+    """ This view is used to handle registration of student and get all data from register form and save the user in the DB """
     registeredcheck = False
     first_name = request.POST.get('first_name')
     last_name = request.POST.get('last_name')
@@ -84,9 +76,7 @@ def studentRegister(request):
 
 
 def loginUser(request):
-    """
-    This view is used to handle login url request and login user if the credentials are correct
-    """
+    """ This view is used to handle login url request and login user if the credentials are correct """
     if(request.method == 'POST'):
         username = request.POST.get('username')  # Get username from login form
         password = request.POST.get('password')  # Get password from login form
@@ -113,9 +103,7 @@ def loginUser(request):
 
 
 def logoutUser(request):
-    """
-    This view is used to handle logout url request and logout user
-    """
+    """ This view is used to handle logout url request and logout user """
     logout(request)
     return redirect('/')
 
@@ -123,9 +111,7 @@ def logoutUser(request):
 @login_required(login_url='/login/')
 @permission_required('is_superuser', raise_exception=True)
 def createClassSlot(request):
-    """
-    This view is used to create Class slot by faculty and open slot for students
-    """
+    """ This view is used to create Class slot by faculty and open slot for students """
     if request.method == 'POST':
         class_slot_details = ClassSlotDetails()
         class_slot_details.name = request.POST.get('class_slot_name')
@@ -157,9 +143,7 @@ def createClassSlot(request):
 @login_required(login_url='/login/')
 @permission_required('is_superuser', raise_exception=True)
 def viewClassSlots(request):
-    """
-    This view is used to view/return Class slot which are open to students and faculty
-    """
+    """ This view is used to view/return Class slot which are open to students and faculty """
     try:
         class_slots = ClassSlotDetails.objects.all()  # Get all class slots from DB
     except:
@@ -171,9 +155,7 @@ def viewClassSlots(request):
 @login_required(login_url='/login/')
 @permission_required('is_superuser', raise_exception=True)
 def editClassSlot(request, class_slot_id):  # Get class slot id from url
-    """
-    This view is used to edit Class slot which are created by faculty
-    """
+    """ This view is used to edit Class slot which are created by faculty """
     class_slot = ClassSlotDetails.objects.get(id=class_slot_id)
     if request.method == 'POST':
         class_slot.name = request.POST.get('class_slot_name')
@@ -193,9 +175,7 @@ def editClassSlot(request, class_slot_id):  # Get class slot id from url
 @login_required(login_url='/login/')
 @permission_required('is_superuser', raise_exception=True)
 def deleteClassSlot(request, class_slot_id):
-    """
-    This view is used to delete Class slot which are created by faculty
-    """
+    """ This view is used to delete Class slot which are created by faculty """
     class_slot = ClassSlotDetails.objects.get(
         id=class_slot_id)  # Get class slot id from url
     class_slot.delete()  # Delete class slot from DB
@@ -204,9 +184,7 @@ def deleteClassSlot(request, class_slot_id):
 
 @login_required(login_url='/login/')
 def bookClassSlot(request):
-    """
-    This view is used to Book slots by the students based on their preferences
-    """
+    """ This view is used to Book slots by the students based on their preferences """
     if request.method == 'POST':
         class_slot_booking = ClassSlotBooking()
         class_slot_booking.user = request.user
@@ -241,9 +219,7 @@ def bookClassSlot(request):
 @login_required(login_url='/login/')
 @permission_required('is_superuser', raise_exception=True)
 def createGroupDiscussion(request):
-    """
-    This view is used to create Group Discussion slot by faculty
-    """
+    """ This view is used to create Group Discussion slot by faculty """
     if request.method == 'POST':
         group_discussion = GroupDiscussion()  # Create a group discussion object
         group_discussion.topic = request.POST.get('topic')
@@ -269,9 +245,7 @@ def createGroupDiscussion(request):
 
 @login_required(login_url='/login/')
 def viewGroupDiscussion(request):
-    """
-    This view is used to view/return Group Discussion slot which are open to students
-    """
+    """ This view is used to view/return Group Discussion slot which are open to students """
     try:
         # Get all group discussions from DB
         group_discussions = GroupDiscussion.objects.all()
@@ -282,9 +256,7 @@ def viewGroupDiscussion(request):
 
 @login_required(login_url='/login/')
 def joinGroupDiscussion(request, gd_slot_id):
-    """
-    This view is used to Join Group Discussion slot which are available
-    """
+    """ This view is used to Join Group Discussion slot which are available """
     # Get group discussion from slot id
     gd_slot = GroupDiscussion.objects.get(id=gd_slot_id)
     gd_table = GroupDiscussionLinks.objects.filter(group_discussion=gd_slot).order_by(
@@ -299,7 +271,5 @@ def joinGroupDiscussion(request, gd_slot_id):
 
 
 def timeline(request):
-    """
-    This view is used to view/return timeline webpage
-    """
+    """ This view is used to view/return timeline webpage """
     return render(request, "timeline.html")
