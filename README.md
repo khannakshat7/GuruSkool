@@ -9,7 +9,7 @@
 
 #### Demo - [CHECK LIVE](https://guruskool.herokuapp.com)
 
-[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://www.youtube.com)
+[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://youtu.be/7fgYWuD7nds)
 
 ## Features and UI
 1. Landing Page
@@ -72,7 +72,7 @@
 ## Useful Links
 
 - [Deployed Website](https://guruskool.herokuapp.com)
-- [Demo Video](https://youtube.com/)
+- [Demo Video](https://youtu.be/7fgYWuD7nds)
 - [Support Documents](https://drive.google.com/drive/folders/1kxZ9SSJmFhWAMgk1e9uppmI1Qy2BhSiI?usp=sharing)
 
 ## Need help?
