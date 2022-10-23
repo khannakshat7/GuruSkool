@@ -1,6 +1,12 @@
 # 👩‍🏫गुरुSkool👩‍🏫
 ### Believe Bigger Aim Higher
 
+<h3>Contents</h3>
+<ul>
+<li><a href="#Features_and_UI">Features and UI</a></li>
+<li><a href="#Techstack">Techstacks</a></li>
+<li><a href="#Useful_links">Useful links</a></li>
+<li><a href="#help">Need Help?</a></li>
 <p align="center">
 <a href="https://guruskool.herokuapp.com">
 <img src="https://user-images.githubusercontent.com/32996284/143459791-eaa7d148-681d-4c01-a5c0-b90c88d2165d.png" height=300 alt="गुरुSkool-logo"/>
@@ -11,7 +17,7 @@
 
 [![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://youtu.be/7fgYWuD7nds)
 
-## Features and UI
+## <h3 id="Features_and_UI"> Features and UI </h3>
 1. Landing Page
    - Cool landing page with Get Started, Login and Register buttons
    - ![01 (1)](https://user-images.githubusercontent.com/32996284/143461000-9838d0f4-af8d-47c0-8a61-c19b79326c58.png)
@@ -45,7 +51,7 @@
    - Login to the user and user is identified as faculty or student at the backend
    - ![05 (1)](https://user-images.githubusercontent.com/32996284/143463310-9fb0d3eb-2c08-459e-8672-d044e2ead23e.png)
 
-## Tech stack
+## <h3 id="Techstack"> Tech stack</h3>
 
 <img src ="https://user-images.githubusercontent.com/32996284/143463745-56ee79ed-8930-4eac-af88-3b95c317840e.png" height=300 />
 
@@ -69,13 +75,13 @@
 #### Detailed Step by Step [Video](https://www.youtube.com)
 
 
-## Useful Links
+## <h3 id="Useful_links"> Useful Links</h3>
 
 - [Deployed Website](https://guruskool.herokuapp.com)
 - [Demo Video](https://youtu.be/7fgYWuD7nds)
 - [Support Documents](https://drive.google.com/drive/folders/1kxZ9SSJmFhWAMgk1e9uppmI1Qy2BhSiI?usp=sharing)
 
-## Need help?
+## <h3 id="help"> Need help?</h3>
 
 Feel free to contact me
 
