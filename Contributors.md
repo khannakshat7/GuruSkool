@@ -12,4 +12,4 @@ here is the [list of contributors](#list-of-contributors)
         github: [khannakshat7](https://github.com/khannakshat7)
 
 #### Archit 
-        github: k0more
+        github: [k0more](https://github.com/k0more)
