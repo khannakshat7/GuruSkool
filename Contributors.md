@@ -8,7 +8,7 @@ here is the [list of contributors](#list-of-contributors)
 ## Socials 
 #### Akshat
         Twitter: [@Khannakshat7](https://twitter.com/khannakshat7)
-        LinkedIn: AkshatKhanna7
+        LinkedIn: [AkshatKhanna7](https://www.linkedin.com/in/akshatkhanna7)
         github: khannakshat7
 
 #### Archit 
