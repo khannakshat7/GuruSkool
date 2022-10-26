@@ -1,7 +1,7 @@
 here is the [list of contributors](#list-of-contributors)
 # List of Contributors
 
-1. [Akshat Khanna](#akshat)
+1. [Akshat Khanna](https://www.github.com/khannakshat7)
 
 2. [Archit Khanna](https://www.github.com/k0more) 
 
