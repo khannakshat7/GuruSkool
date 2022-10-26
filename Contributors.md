@@ -3,7 +3,7 @@ here is the [list of contributors](#list-of-contributors)
 
 1. [Akshat Khanna](#akshat)
 
-2. [Archit Khanna](#archit) 
+2. [Archit Khanna](https://www.github.com/k0more) 
 
 ## Socials 
 #### Akshat
