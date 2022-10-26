@@ -9,7 +9,7 @@ here is the [list of contributors](#list-of-contributors)
 #### Akshat
 - Twitter: [@Khannakshat7](https://twitter.com/khannakshat7)
         LinkedIn: [AkshatKhanna7](https://www.linkedin.com/in/akshatkhanna7)
-        github: [khannakshat7](https://github.com/khannakshat7)
+- github: [khannakshat7](https://github.com/khannakshat7)
 
 #### Archit 
 - github: [k0more](https://github.com/k0more)
